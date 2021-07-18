@@ -14,15 +14,7 @@ function calculate(arr, operator){
 
 function solution(expression){
 
-    const numerical = [
-        '*+-',
-        '*-+',
-        '+*-',
-        '+-*',
-        '-*+',
-        '-+*',
-    ];
-
+    const numerical = ['*+-', '*-+', '+*-', '+-*', '-*+', '-+*'];
     let max = 0;
     for (let i = 0; i < 6; i += 1) {
         const op = numerical[i];
@@ -31,7 +23,6 @@ function solution(expression){
     }
     return max;
 }
-
 console.log(solution("100-200*300-500+20"));
 
 
