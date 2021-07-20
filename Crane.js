@@ -1,8 +1,7 @@
 function solution(board, moves) {
-    var arr=[];
+    var arr=[]; //인형쌓아두는 배열
     var answer = 0;
     for(let i=0; i<moves.length; i++){
-        k=0;
         for(var k=0;k<board.length;k++){
             if(board[k][moves[i]-1]!==0){
                 arr.push(board[k][moves[i]-1]);
