@@ -15,13 +15,13 @@ function calculate(arr, operator){
 function solution(expression){
 
     const numerical = ['*+-', '*-+', '+*-', '+-*', '-*+', '-+*'];
-    let max = 0;
+    let answer = 0;
     for (let i = 0; i < 6; i += 1) {
         const op = numerical[i];
         const value = calculate(expression.split(op[2]).map(v => calculate(v.split(op[1]).map(k => calculate(k.split(op[0]), op[0])), op[1])), op[2]);
-        if (Math.abs(value) > max) max = Math.abs(value);
+        if (Math.abs(value) > answer) answer = Math.abs(value);
     }
-    return max;
+    return answer;
 }
 console.log(solution("100-200*300-500+20"));
 
