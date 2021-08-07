@@ -8,30 +8,32 @@
  return 하도록 solution 함수를 완성하라.
  */
 
-
 function solution(N, stages) {
     var eachS = new Array(N + 1).fill(0);
-    stages.forEach( v => eachS[v - 1] += 1);
+    stages.forEach( v => eachS[v - 1] += 1);  //각 라운드에서 진행중인 사람의 명수
 
-    var success = eachS[eachS.length - 1];
+    var success = eachS[eachS.length - 1]; //마지막 라운드
     var percent = [];
+
     for (let i = N - 1; i >= 0; i--) {
         success += eachS[i];
-        percent.push({ stage: i + 1, perc: eachS[i] / success || 0}) //
+        percent.push({ stage: i + 1, perc: eachS[i] / success || 0})
     }
 
     return percent.sort((a, b) => {
-        if (b.perc - a.perc != 0) return b.perc - a.perc;
-        else return a.stage - b.stage
+        if (b.perc - a.perc !== 0)
+            return b.perc - a.perc; //실패율
+        else
+            return a.stage - b.stage
     }).map(v => v.stage)
 
 }
 
 function test(){
-    //var N=5; //확인할 스테이지 수
-    //var stages=[2, 1, 2, 6, 2, 4, 3, 3]; //총 8명이 도전
-    var N=4;
-    var stages=[4,4,4,4,4];
+    var N=5; //확인할 스테이지 수
+    var stages=[2, 1, 2, 6, 2, 4, 3, 3]; //총 8명이 도전
+    // var N=4;
+    // var stages=[4,4,4,4,4];
     console.log(solution(N, stages));
 }
 test()
@@ -42,7 +44,7 @@ test()
  * -> Object.assign()메소드는 열거 가능한 모든 고유 특성의 값을 하나 이상의 소스 오브젝트에서
  * 대상 오브젝트로 복사하는 데 사용됩니다. 대상 객체를 반환합니다.
  *
- * 2. push({})이용
+ * 2. push({key: sadasdasdas , value: cacasdsdsa})이용
  * var employees = [];
  * employees.push({id:100,name:'Yashwant',age:30});
  * employees.push({id:200,name:'Mahesh',age:35});

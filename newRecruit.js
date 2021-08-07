@@ -15,21 +15,44 @@
  * 사이에 두고 한 줄에 주어진다. 두 성적 순위는 모두 1위부터 N위까지 동석차 없이 결정된다고 가정한다.
  * **/
 
-function solution(rec){
+function solution(n, list) {
+    let arr = []; //이차원 배열 int형으로 바꿈
+    for (i of list) {
+        arr.push(i.split(" ").map((el) => parseInt(el)));
+    }
+    arr.sort(function (a, b) {return a[0] - b[0];}) //오름차순
 
+    let tmp = arr[0][1];
+    let count = 1;
+    for (let i = 1; i < arr.length; i++) {
+        if (tmp > arr[i][1]) {
+            tmp = arr[i][1];
+            count += 1;
+        }
+    }
+
+    const readline = require("readline");
+    const rl = readline.createInterface({input: process.stdin, output: process.stdout,});
+    let input = [];
+    rl.on("line", function (line) {
+        input.push(line)
+    }).on("close", function () {
+        let test = parseInt(input[0]);
+        let c = 1;
+        let n = 0;
+        let list = [];
+        for (let i = 1; i <= test; i++) {
+            n = parseInt(input[c]);
+            c += 1;
+            for (let j = c; j < c + n; j++) {
+                list.push(input[j]);
+            }
+            solution(n, list);
+            c += n;
+            list = [];
+        }
+    });
 }
 
-function test(){
-    var T=2;
-    var N=4;
-    var Rec=[
-      [3,2], [1,4], [4,1],[2,3]
-    ];
-
-    Console.log(solution(Rec));
-
-
-
-
-}
+    //출처: https://ghost4551.tistory.com/13 [프론트 개발자들을 위한 티스토리]
 
