@@ -1,3 +1,6 @@
+//크레인 인형 뽑기 게임
+
+
 function solution(board, moves) {
     var arr=[]; //인형쌓아두는 배열
     var answer = 0;

@@ -1,3 +1,5 @@
+//로또의 최고순위와 최저순위
+
 function solution(lottos, win_nums) {
     var answer = [];
     var check_Low =0;

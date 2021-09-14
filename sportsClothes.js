@@ -1,3 +1,5 @@
+//체육복
+
 function solution(n, lost, reserve) {
     var answer = 0;
     var exist=0;

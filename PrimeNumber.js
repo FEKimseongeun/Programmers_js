@@ -1,10 +1,12 @@
-function isP(num) {
-    for (let i = 2; i * i <= num; i++) {
+//소수만들기
+
+function prime_(num) {
+    for (let i = 2; i * i < num+1; i++) {
         if (num % i === 0) {
-            return false;
+            return 0;
         }
     }
-    return true;
+    return 1;
 }
 
 function solution(nums) {
@@ -14,7 +16,7 @@ function solution(nums) {
         for (let j = i + 1; j < nums.length; j++) {
             for (let k = j + 1; k < nums.length; k++) {
                 let num = nums[i] + nums[j] + nums[k];
-                if (isP(num)) {
+                if (prime_(num)) {
                     answer++;
                 }
             }

@@ -1,3 +1,5 @@
+//K번째 수
+
 function solution(array, commands) {
     var answer = [];
     var result=[];
